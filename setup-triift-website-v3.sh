@@ -5,15 +5,15 @@ mkdir -p app components
 
 cat > app/globals.css << 'EOF'
 :root {
-  /* Brand purple pulled directly from the logo file (#412ECE) */
-  --purple: #412ECE;
-  --purple-bright: #5B45E5;
-  --purple-deep: #2C1FA0;
-  --purple-soft: #EEEBFC;
+  /* Primary brand purple */
+  --purple: #6017EF;
+  --purple-bright: #7B3FF2;
+  --purple-deep: #430FA8;
+  --purple-soft: #F1E9FB;
 
-  /* Warm nude/gold accent, pairs with the purple instead of a hot orange */
-  --nude: #D9B68C;
-  --nude-deep: #C29A66;
+  /* Secondary lavender accent */
+  --sub: #DCBFF0;
+  --sub-deep: #C7A2E0;
 
   --paper: #FFFFFF;
   --paper-tint: #FAF8FC;
@@ -99,7 +99,7 @@ h1, h2, h3, h4 {
 
 em {
   font-style: italic;
-  color: var(--nude-deep);
+  color: var(--sub-deep);
 }
 
 .container {
@@ -124,17 +124,16 @@ em {
   content: "";
   width: 22px;
   height: 1px;
-  background: var(--nude-deep);
+  background: var(--sub-deep);
   display: inline-block;
 }
 
-.section-purple .eyebrow,
-.hero .eyebrow {
+.section-purple .eyebrow {
   color: var(--text-on-purple-soft);
 }
 
 :focus-visible {
-  outline: 2px solid var(--nude-deep);
+  outline: 2px solid var(--sub-deep);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -159,13 +158,13 @@ em {
 }
 
 .btn-primary {
-  background: var(--nude);
+  background: var(--sub);
   color: var(--text);
   box-shadow: 0 10px 24px -8px rgba(217, 182, 140, 0.6);
 }
 
 .btn-primary:hover {
-  background: var(--nude-deep);
+  background: var(--sub-deep);
 }
 
 .btn-ghost-dark {
@@ -195,10 +194,10 @@ em {
 }
 
 .site-header.is-scrolled {
-  background: rgba(65, 46, 206, 0.88);
+  background: rgba(96, 23, 239, 0.88);
   backdrop-filter: blur(14px) saturate(140%);
   padding: 12px 0;
-  box-shadow: 0 10px 30px -18px rgba(44, 31, 160, 0.55);
+  box-shadow: 0 10px 30px -18px rgba(67, 15, 168, 0.55);
 }
 
 .site-header .container {
@@ -241,7 +240,7 @@ em {
   right: 100%;
   bottom: -2px;
   height: 2px;
-  background: var(--nude);
+  background: var(--sub);
   border-radius: 2px;
   transition: right 0.35s ease;
 }
@@ -327,7 +326,7 @@ section {
 .section-divider {
   height: 4px;
   width: 100%;
-  background: linear-gradient(90deg, var(--purple) 0%, var(--nude) 100%);
+  background: linear-gradient(90deg, var(--purple) 0%, var(--sub) 100%);
 }
 
 /* Stamp badge */
@@ -402,7 +401,7 @@ section {
   font-style: italic;
   font-size: 1.05rem;
   color: #fff;
-  border-left: 2px solid var(--nude);
+  border-left: 2px solid var(--sub);
   padding-left: 18px;
   max-width: 46ch;
   margin: 0;
@@ -434,7 +433,7 @@ section {
   color: var(--text);
   border-radius: var(--radius-lg);
   padding: 30px 28px;
-  box-shadow: 0 40px 80px -30px rgba(44, 31, 160, 0.45);
+  box-shadow: 0 40px 80px -30px rgba(67, 15, 168, 0.45);
   transform: rotate(2.5deg);
 }
 
@@ -481,7 +480,7 @@ section {
   position: absolute;
   bottom: -22px;
   left: -18px;
-  background: var(--nude);
+  background: var(--sub);
   color: var(--text);
   padding: 14px 18px;
   border-radius: var(--radius-md);
@@ -571,7 +570,7 @@ section {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--nude-deep);
+  background: var(--sub-deep);
   margin-top: 8px;
   flex-shrink: 0;
 }
@@ -593,8 +592,8 @@ section {
 
 .persona-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 30px 50px -26px rgba(65, 46, 206, 0.18);
-  border-color: rgba(65, 46, 206, 0.28);
+  box-shadow: 0 30px 50px -26px rgba(96, 23, 239, 0.18);
+  border-color: rgba(96, 23, 239, 0.28);
 }
 
 .persona-tag {
@@ -629,7 +628,7 @@ section {
   font-family: var(--font-mono), monospace;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
-  border: 1px dashed rgba(65, 46, 206, 0.35);
+  border: 1px dashed rgba(96, 23, 239, 0.35);
   color: var(--purple);
   padding: 10px 18px;
   border-radius: 100px;
@@ -679,7 +678,7 @@ section {
 .service-cta {
   font-family: var(--font-mono), monospace;
   font-size: 0.82rem;
-  color: var(--nude);
+  color: var(--sub);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -776,7 +775,7 @@ section {
 }
 
 .testi-stars {
-  color: var(--nude-deep);
+  color: var(--sub-deep);
   letter-spacing: 2px;
   margin-bottom: 16px;
   font-size: 0.9rem;
@@ -858,7 +857,7 @@ section {
 
 .resource-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 30px 60px -30px rgba(65, 46, 206, 0.2);
+  box-shadow: 0 30px 60px -30px rgba(96, 23, 239, 0.2);
 }
 
 .resource-icon {
@@ -1016,7 +1015,7 @@ section {
   height: 44px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.12);
-  color: var(--nude);
+  color: var(--sub);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1070,7 +1069,7 @@ section {
 
 .form-field input:focus,
 .form-field textarea:focus {
-  border-color: var(--nude);
+  border-color: var(--sub);
   outline: none;
 }
 
@@ -1122,7 +1121,7 @@ section {
 }
 
 .footer-col a:hover {
-  color: var(--nude);
+  color: var(--sub);
 }
 
 .footer-social {
@@ -1143,8 +1142,8 @@ section {
 }
 
 .footer-social a:hover {
-  background: var(--nude);
-  border-color: var(--nude);
+  background: var(--sub);
+  border-color: var(--sub);
   color: var(--text);
 }
 

@@ -122,7 +122,8 @@ em {
   display: inline-block;
 }
 
-.section-purple .eyebrow {
+.section-purple .eyebrow,
+.hero .eyebrow {
   color: var(--text-on-purple-soft);
 }
 
