@@ -33,10 +33,9 @@ export const metadata: Metadata = {
     template: '%s | Triift Africa',
   },
   description:
-    'Triift Africa helps nano and micro business owners across Africa access business registration, training, mentorship, resources and a thriving entrepreneur community.',
+    'Triift Africa helps nano and micro business owners across Africa access training, mentorship, resources and a thriving entrepreneur community.',
   keywords: [
     'business community Africa',
-    'business registration CAC',
     'entrepreneur mentorship Africa',
     'START Accelerator Program',
     'small business training Nigeria',
@@ -50,7 +49,7 @@ export const metadata: Metadata = {
     siteName: 'Triift Africa',
     title: 'Triift Africa | Driving the Growth of African Businesses',
     description:
-      'Community, training, business registration and resources for nano and micro business owners across Africa.',
+      'Community, training and resources for nano and micro business owners across Africa.',
     locale: 'en_NG',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Triift Africa' }],
   },
@@ -73,7 +72,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/logo-purple.png`,
   description:
-    'Triift Africa supports nano and micro business owners across Africa through community, training, mentorship, business registration and practical resources.',
+    'Triift Africa supports nano and micro business owners across Africa through community, training, mentorship and practical resources.',
   email: 'triiftafrica@gmail.com',
   telephone: '+2349035333965',
   areaServed: 'Africa',
@@ -89,7 +88,7 @@ const faqSchema = {
       name: 'What does Triift Africa help with?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We help nano and micro business owners grow through community, training and mentorship, business registration support, and practical resources, without requiring any funding or financial product.',
+        text: 'We help nano and micro business owners grow through community, training and mentorship, and practical resources, without requiring any funding or financial product.',
       },
     },
     {

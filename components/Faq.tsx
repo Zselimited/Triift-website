@@ -3,7 +3,7 @@ import Reveal from './Reveal';
 const FAQS = [
   {
     q: 'What does Triift Africa help with?',
-    a: 'We help nano and micro business owners grow through community, training and mentorship, business registration support, and practical resources, without requiring any funding or financial product.',
+    a: 'We help nano and micro business owners grow through community, training and mentorship, and practical resources, without requiring any funding or financial product.',
   },
   {
     q: 'What is the Triift Community?',
@@ -12,10 +12,6 @@ const FAQS = [
   {
     q: 'How can I join the community?',
     a: 'Sign up through our website. Once you register, you will receive the link to join our WhatsApp community and get updates on programs and events.',
-  },
-  {
-    q: 'How do I get my business registered?',
-    a: 'Reach out through our contact form or email, and our team will guide you through CAC registration, including business name, limited liability, or NGO registration.',
   },
   {
     q: 'Is Triift Africa only for Nigerians?',

@@ -10,20 +10,13 @@ const SERVICES = [
   },
   {
     index: '02',
-    title: 'Business registration',
-    body: 'Business name, limited liability and NGO registration, helping small and nano businesses become CAC compliant and formal.',
-    cta: 'Register your business',
-    href: '#contact',
-  },
-  {
-    index: '03',
     title: 'Business resources',
     body: 'Templates, checklists and ebooks on pricing, marketing, and financial management, built to solve real business pain points.',
     cta: 'Get a resource',
     href: '#resources',
   },
   {
-    index: '04',
+    index: '03',
     title: 'Training and mentorship',
     body: 'We partner with organizations to train, mentor and support business owners in key skills: marketing, pricing, pitching and more.',
     cta: 'Learn more',

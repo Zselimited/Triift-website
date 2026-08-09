@@ -67,7 +67,7 @@ export default function Footer() {
             <h4>Programs</h4>
             <ul>
               <li><a href="#services">START Accelerator</a></li>
-              <li><a href="#services">Business registration</a></li>
+              <li><a href="#resources">Business resources</a></li>
               <li><a href="#community">Business community</a></li>
             </ul>
           </div>

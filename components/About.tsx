@@ -2,7 +2,6 @@ import Reveal from './Reveal';
 
 const PULL_POINTS = [
   'A community built for accountability, support and growth',
-  'CAC compliant business registration, done for you',
   'Templates, checklists and ebooks that solve real problems',
   'Training and mentorship from partners across Africa',
 ];
@@ -66,8 +65,8 @@ export default function About() {
             <p>
               We started with a simple idea: ambitious business owners needed more than good
               intentions, they needed structure, accountability, and the right resources to grow.
-              So we built Triift Africa around training, mentorship, business registration support,
-              and a community that holds business owners accountable to their goals.
+              So we built Triift Africa around training, mentorship, and a community that holds
+              business owners accountable to their goals.
             </p>
             <p>Today, we support everyday entrepreneurs at every stage of their journey.</p>
           </Reveal>

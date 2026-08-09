@@ -12,8 +12,8 @@ cat > app/globals.css << 'EOF'
   --purple-soft: #EEEBFC;
 
   /* Warm nude/gold accent, pairs with the purple instead of a hot orange */
-  --nude: #D9B68C;
-  --nude-deep: #C29A66;
+  --nude: #C17D2C;
+  --nude-deep: #A46A25;
 
   --paper: #FFFFFF;
   --paper-tint: #FAF8FC;
@@ -161,7 +161,6 @@ em {
 .btn-primary {
   background: var(--nude);
   color: var(--text);
-  box-shadow: 0 10px 24px -8px rgba(217, 182, 140, 0.6);
 }
 
 .btn-primary:hover {
@@ -323,11 +322,11 @@ section {
   color: var(--text-on-purple-soft);
 }
 
-/* Section divider: a simple gradient rule, no pattern/texture */
+/* Section divider: a plain solid rule, no gradient/pattern */
 .section-divider {
   height: 4px;
   width: 100%;
-  background: linear-gradient(90deg, var(--purple) 0%, var(--nude) 100%);
+  background: var(--purple);
 }
 
 /* Stamp badge */
@@ -487,7 +486,6 @@ section {
   border-radius: var(--radius-md);
   font-family: var(--font-mono), monospace;
   font-size: 0.78rem;
-  box-shadow: 0 20px 40px -14px rgba(217, 182, 140, 0.7);
   transform: rotate(-3deg);
 }
 
@@ -704,6 +702,9 @@ section {
   border: 1px solid var(--line-on-purple);
   border-radius: var(--radius-lg);
   padding: 36px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .program-card h3 {
@@ -715,6 +716,11 @@ section {
 .program-card p {
   color: var(--text-on-purple-soft);
   margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+.program-card > a {
+  align-self: flex-start;
 }
 
 /* Impact */
@@ -1280,10 +1286,9 @@ export const metadata: Metadata = {
     template: '%s | Triift Africa',
   },
   description:
-    'Triift Africa helps nano and micro business owners across Africa access business registration, training, mentorship, resources and a thriving entrepreneur community.',
+    'Triift Africa helps nano and micro business owners across Africa access training, mentorship, resources and a thriving entrepreneur community.',
   keywords: [
     'business community Africa',
-    'business registration CAC',
     'entrepreneur mentorship Africa',
     'START Accelerator Program',
     'small business training Nigeria',
@@ -1297,7 +1302,7 @@ export const metadata: Metadata = {
     siteName: 'Triift Africa',
     title: 'Triift Africa | Driving the Growth of African Businesses',
     description:
-      'Community, training, business registration and resources for nano and micro business owners across Africa.',
+      'Community, training and resources for nano and micro business owners across Africa.',
     locale: 'en_NG',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Triift Africa' }],
   },
@@ -1320,7 +1325,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/logo-purple.png`,
   description:
-    'Triift Africa supports nano and micro business owners across Africa through community, training, mentorship, business registration and practical resources.',
+    'Triift Africa supports nano and micro business owners across Africa through community, training, mentorship and practical resources.',
   email: 'triiftafrica@gmail.com',
   telephone: '+2349035333965',
   areaServed: 'Africa',
@@ -1336,7 +1341,7 @@ const faqSchema = {
       name: 'What does Triift Africa help with?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We help nano and micro business owners grow through community, training and mentorship, business registration support, and practical resources, without requiring any funding or financial product.',
+        text: 'We help nano and micro business owners grow through community, training and mentorship, and practical resources, without requiring any funding or financial product.',
       },
     },
     {
@@ -1709,7 +1714,6 @@ import Reveal from './Reveal';
 
 const PULL_POINTS = [
   'A community built for accountability, support and growth',
-  'CAC compliant business registration, done for you',
   'Templates, checklists and ebooks that solve real problems',
   'Training and mentorship from partners across Africa',
 ];
@@ -1773,8 +1777,8 @@ export default function About() {
             <p>
               We started with a simple idea: ambitious business owners needed more than good
               intentions, they needed structure, accountability, and the right resources to grow.
-              So we built Triift Africa around training, mentorship, business registration support,
-              and a community that holds business owners accountable to their goals.
+              So we built Triift Africa around training, mentorship, and a community that holds
+              business owners accountable to their goals.
             </p>
             <p>Today, we support everyday entrepreneurs at every stage of their journey.</p>
           </Reveal>
@@ -1810,20 +1814,13 @@ const SERVICES = [
   },
   {
     index: '02',
-    title: 'Business registration',
-    body: 'Business name, limited liability and NGO registration, helping small and nano businesses become CAC compliant and formal.',
-    cta: 'Register your business',
-    href: '#contact',
-  },
-  {
-    index: '03',
     title: 'Business resources',
     body: 'Templates, checklists and ebooks on pricing, marketing, and financial management, built to solve real business pain points.',
     cta: 'Get a resource',
     href: '#resources',
   },
   {
-    index: '04',
+    index: '03',
     title: 'Training and mentorship',
     body: 'We partner with organizations to train, mentor and support business owners in key skills: marketing, pricing, pitching and more.',
     cta: 'Learn more',
@@ -2089,7 +2086,7 @@ import Reveal from './Reveal';
 const FAQS = [
   {
     q: 'What does Triift Africa help with?',
-    a: 'We help nano and micro business owners grow through community, training and mentorship, business registration support, and practical resources, without requiring any funding or financial product.',
+    a: 'We help nano and micro business owners grow through community, training and mentorship, and practical resources, without requiring any funding or financial product.',
   },
   {
     q: 'What is the Triift Community?',
@@ -2098,10 +2095,6 @@ const FAQS = [
   {
     q: 'How can I join the community?',
     a: 'Sign up through our website. Once you register, you will receive the link to join our WhatsApp community and get updates on programs and events.',
-  },
-  {
-    q: 'How do I get my business registered?',
-    a: 'Reach out through our contact form or email, and our team will guide you through CAC registration, including business name, limited liability, or NGO registration.',
   },
   {
     q: 'Is Triift Africa only for Nigerians?',
@@ -2320,7 +2313,7 @@ export default function Footer() {
             <h4>Programs</h4>
             <ul>
               <li><a href="#services">START Accelerator</a></li>
-              <li><a href="#services">Business registration</a></li>
+              <li><a href="#resources">Business resources</a></li>
               <li><a href="#community">Business community</a></li>
             </ul>
           </div>
