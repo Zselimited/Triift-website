@@ -28,27 +28,12 @@ export default function Hero() {
 
         <Reveal delay={0.15}>
           <div className="hero-visual">
-            <div className="snapshot-card">
-              <div className="snapshot-title">
-                <span>Triift Snapshot</span>
-                <span>2026</span>
-              </div>
-              <div className="snapshot-row">
-                <span>Business owners trained</span>
-                <span className="num"><Counter target={7000} suffix="+" /></span>
-              </div>
-              <div className="snapshot-row">
-                <span>Student entrepreneurs trained</span>
-                <span className="num"><Counter target={600} suffix="+" /></span>
-              </div>
-              <div className="snapshot-row">
-                <span>Countries impacted</span>
-                <span className="num"><Counter target={6} /></span>
-              </div>
-              <div className="snapshot-row">
-                <span>START cohorts hosted</span>
-                <span className="num"><Counter target={3} /></span>
-              </div>
+            <div className="hero-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/hero-market-woman.jpg"
+                alt="A smiling African market trader surrounded by fresh produce at her stall"
+              />
             </div>
             <div className="stamp" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">

@@ -5,15 +5,15 @@ mkdir -p app components
 
 cat > app/globals.css << 'EOF'
 :root {
-  /* Brand purple pulled directly from the logo file (#412ECE) */
-  --purple: #412ECE;
-  --purple-bright: #5B45E5;
-  --purple-deep: #2C1FA0;
-  --purple-soft: #EEEBFC;
+  /* Primary brand purple: deep, muted, not neon */
+  --purple: #5C2D91;
+  --purple-bright: #7953A5;
+  --purple-deep: #402066;
+  --purple-soft: #F2EBFA;
 
-  /* Warm nude/gold accent, pairs with the purple instead of a hot orange */
-  --nude: #C17D2C;
-  --nude-deep: #A46A25;
+  /* Lilac accent */
+  --lilac: #C9A6E0;
+  --lilac-deep: #B58FD1;
 
   --paper: #FFFFFF;
   --paper-tint: #FAF8FC;
@@ -99,7 +99,7 @@ h1, h2, h3, h4 {
 
 em {
   font-style: italic;
-  color: var(--nude-deep);
+  color: var(--lilac-deep);
 }
 
 .container {
@@ -124,7 +124,7 @@ em {
   content: "";
   width: 22px;
   height: 1px;
-  background: var(--nude-deep);
+  background: var(--lilac-deep);
   display: inline-block;
 }
 
@@ -134,7 +134,7 @@ em {
 }
 
 :focus-visible {
-  outline: 2px solid var(--nude-deep);
+  outline: 2px solid var(--lilac-deep);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -159,12 +159,12 @@ em {
 }
 
 .btn-primary {
-  background: var(--nude);
+  background: var(--lilac);
   color: var(--text);
 }
 
 .btn-primary:hover {
-  background: var(--nude-deep);
+  background: var(--lilac-deep);
 }
 
 .btn-ghost-dark {
@@ -194,10 +194,10 @@ em {
 }
 
 .site-header.is-scrolled {
-  background: rgba(65, 46, 206, 0.88);
+  background: rgba(92, 45, 145, 0.88);
   backdrop-filter: blur(14px) saturate(140%);
   padding: 12px 0;
-  box-shadow: 0 10px 30px -18px rgba(44, 31, 160, 0.55);
+  box-shadow: 0 10px 30px -18px rgba(64, 32, 102, 0.55);
 }
 
 .site-header .container {
@@ -240,7 +240,7 @@ em {
   right: 100%;
   bottom: -2px;
   height: 2px;
-  background: var(--nude);
+  background: var(--lilac);
   border-radius: 2px;
   transition: right 0.35s ease;
 }
@@ -286,7 +286,7 @@ section {
 }
 
 .section-purple {
-  background: linear-gradient(160deg, var(--purple) 0%, var(--purple-deep) 100%);
+  background: var(--purple);
   color: var(--text-on-purple);
 }
 
@@ -359,7 +359,7 @@ section {
 
 /* Hero */
 .hero {
-  background: linear-gradient(160deg, var(--purple-bright) 0%, var(--purple) 45%, var(--purple-deep) 100%);
+  background: var(--purple);
   color: var(--text-on-purple);
   padding-top: clamp(140px, 20vw, 200px);
   padding-bottom: 100px;
@@ -401,7 +401,7 @@ section {
   font-style: italic;
   font-size: 1.05rem;
   color: #fff;
-  border-left: 2px solid var(--nude);
+  border-left: 2px solid var(--lilac);
   padding-left: 18px;
   max-width: 46ch;
   margin: 0;
@@ -426,6 +426,23 @@ section {
   justify-content: center;
 }
 
+.hero-photo {
+  position: relative;
+  width: 88%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(64, 32, 102, 0.45);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
 .snapshot-card {
   position: relative;
   width: 88%;
@@ -433,7 +450,7 @@ section {
   color: var(--text);
   border-radius: var(--radius-lg);
   padding: 30px 28px;
-  box-shadow: 0 40px 80px -30px rgba(44, 31, 160, 0.45);
+  box-shadow: 0 40px 80px -30px rgba(64, 32, 102, 0.45);
   transform: rotate(2.5deg);
 }
 
@@ -480,7 +497,7 @@ section {
   position: absolute;
   bottom: -22px;
   left: -18px;
-  background: var(--nude);
+  background: var(--lilac);
   color: var(--text);
   padding: 14px 18px;
   border-radius: var(--radius-md);
@@ -569,7 +586,7 @@ section {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--nude-deep);
+  background: var(--lilac-deep);
   margin-top: 8px;
   flex-shrink: 0;
 }
@@ -584,15 +601,32 @@ section {
 .persona-card {
   background: var(--paper-raised);
   border-radius: var(--radius-lg);
-  padding: 30px 26px;
   border: 1px solid var(--line);
+  overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .persona-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 30px 50px -26px rgba(65, 46, 206, 0.18);
-  border-color: rgba(65, 46, 206, 0.28);
+  box-shadow: 0 30px 50px -26px rgba(92, 45, 145, 0.18);
+  border-color: rgba(92, 45, 145, 0.28);
+}
+
+.persona-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.persona-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.persona-card-body {
+  padding: 26px 26px 30px;
 }
 
 .persona-tag {
@@ -627,7 +661,7 @@ section {
   font-family: var(--font-mono), monospace;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
-  border: 1px dashed rgba(65, 46, 206, 0.35);
+  border: 1px dashed rgba(92, 45, 145, 0.35);
   color: var(--purple);
   padding: 10px 18px;
   border-radius: 100px;
@@ -677,7 +711,7 @@ section {
 .service-cta {
   font-family: var(--font-mono), monospace;
   font-size: 0.82rem;
-  color: var(--nude);
+  color: var(--lilac);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -782,7 +816,7 @@ section {
 }
 
 .testi-stars {
-  color: var(--nude-deep);
+  color: var(--lilac-deep);
   letter-spacing: 2px;
   margin-bottom: 16px;
   font-size: 0.9rem;
@@ -809,7 +843,7 @@ section {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(145deg, var(--purple), var(--purple-bright));
+  background: var(--purple);
   color: #fff;
   display: flex;
   align-items: center;
@@ -845,9 +879,29 @@ section {
 }
 
 /* Resources */
+.resource-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.resource-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.resource-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .resource-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
@@ -864,7 +918,7 @@ section {
 
 .resource-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 30px 60px -30px rgba(65, 46, 206, 0.2);
+  box-shadow: 0 30px 60px -30px rgba(92, 45, 145, 0.2);
 }
 
 .resource-icon {
@@ -962,10 +1016,35 @@ section {
 
 /* CTA banner */
 .cta-banner {
+  position: relative;
   border-radius: var(--radius-lg);
-  padding: clamp(40px, 6vw, 64px);
-  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
   color: #fff;
+  overflow: hidden;
+}
+
+.cta-banner-photo {
+  position: absolute;
+  inset: 0;
+}
+
+.cta-banner-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cta-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--purple-deep);
+  opacity: 0.86;
+}
+
+.cta-banner-content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(40px, 6vw, 64px);
   display: grid;
   grid-template-columns: 1.3fr auto;
   align-items: center;
@@ -1022,7 +1101,7 @@ section {
   height: 44px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.12);
-  color: var(--nude);
+  color: var(--lilac);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1076,7 +1155,7 @@ section {
 
 .form-field input:focus,
 .form-field textarea:focus {
-  border-color: var(--nude);
+  border-color: var(--lilac);
   outline: none;
 }
 
@@ -1128,7 +1207,7 @@ section {
 }
 
 .footer-col a:hover {
-  color: var(--nude);
+  color: var(--lilac);
 }
 
 .footer-social {
@@ -1149,8 +1228,8 @@ section {
 }
 
 .footer-social a:hover {
-  background: var(--nude);
-  border-color: var(--nude);
+  background: var(--lilac);
+  border-color: var(--lilac);
   color: var(--text);
 }
 
@@ -1186,8 +1265,11 @@ section {
   .program-grid {
     grid-template-columns: 1fr;
   }
-  .resource-grid {
+  .resource-layout {
     grid-template-columns: 1fr;
+  }
+  .resource-photo {
+    min-height: 240px;
   }
   .contact-grid {
     grid-template-columns: 1fr;
@@ -1199,7 +1281,7 @@ section {
   .service-index {
     display: none;
   }
-  .cta-banner {
+  .cta-banner-content {
     grid-template-columns: 1fr;
     text-align: left;
   }
@@ -1650,27 +1732,12 @@ export default function Hero() {
 
         <Reveal delay={0.15}>
           <div className="hero-visual">
-            <div className="snapshot-card">
-              <div className="snapshot-title">
-                <span>Triift Snapshot</span>
-                <span>2026</span>
-              </div>
-              <div className="snapshot-row">
-                <span>Business owners trained</span>
-                <span className="num"><Counter target={7000} suffix="+" /></span>
-              </div>
-              <div className="snapshot-row">
-                <span>Student entrepreneurs trained</span>
-                <span className="num"><Counter target={600} suffix="+" /></span>
-              </div>
-              <div className="snapshot-row">
-                <span>Countries impacted</span>
-                <span className="num"><Counter target={6} /></span>
-              </div>
-              <div className="snapshot-row">
-                <span>START cohorts hosted</span>
-                <span className="num"><Counter target={3} /></span>
-              </div>
+            <div className="hero-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/hero-market-woman.jpg"
+                alt="A smiling African market trader surrounded by fresh produce at her stall"
+              />
             </div>
             <div className="stamp" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -1725,16 +1792,25 @@ const PERSONAS = [
     tag: '01. Sabi',
     title: 'The market trader',
     body: 'Running her small business with determination, often without access to formal banking, looking for practical ways to grow her trade.',
+    image: '/images/persona-sabi.jpg',
+    alt: 'A smiling fabric shop owner displaying colourful textile prints',
+    position: 'center 25%',
   },
   {
     tag: '02. Savvy',
     title: 'The online vendor',
     body: 'Knows her way around social media, manages her money through a bank, and wants smart strategies to expand her business.',
+    image: '/images/persona-savvy.jpg',
+    alt: 'A vendor processing a payment on a card machine at her stall',
+    position: 'center 30%',
   },
   {
     tag: '03. Start',
     title: 'The student entrepreneur',
     body: 'Eager to stop depending on allowance from home, turn ideas into real businesses, and build a future on her own terms.',
+    image: '/images/persona-start.jpg',
+    alt: 'A young entrepreneur working with tools, building her trade',
+    position: 'center 15%',
   },
 ];
 
@@ -1788,9 +1864,15 @@ export default function About() {
           {PERSONAS.map((persona, index) => (
             <Reveal delay={index * 0.1} key={persona.tag}>
               <div className="persona-card">
-                <span className="persona-tag">{persona.tag}</span>
-                <h3>{persona.title}</h3>
-                <p>{persona.body}</p>
+                <div className="persona-photo">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={persona.image} alt={persona.alt} style={{ objectPosition: persona.position }} />
+                </div>
+                <div className="persona-card-body">
+                  <span className="persona-tag">{persona.tag}</span>
+                  <h3>{persona.title}</h3>
+                  <p>{persona.body}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -2016,16 +2098,26 @@ export default function CtaBanner() {
     <section className="section-light" style={{ paddingTop: 0 }}>
       <div className="container">
         <Reveal className="cta-banner">
-          <div>
-            <span className="eyebrow" style={{ color: 'var(--orchid)' }}>Join the movement</span>
-            <h2>You are building your business. You should not have to do it alone.</h2>
-            <p>
-              Get access to funding, mentorship and a community of business owners across Africa
-              who show up for each other.
-            </p>
+          <div className="cta-banner-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/cta-basket-weaver.jpg"
+              alt="An artisan weaving baskets by hand in his shop"
+            />
           </div>
-          <div className="cta-actions">
-            <a href="#contact" className="btn btn-primary">Join our community</a>
+          <div className="cta-banner-overlay" />
+          <div className="cta-banner-content">
+            <div>
+              <span className="eyebrow" style={{ color: 'var(--lilac)' }}>Join the movement</span>
+              <h2>You are building your business. You should not have to do it alone.</h2>
+              <p>
+                Get access to mentorship and a community of business owners across Africa
+                who show up for each other.
+              </p>
+            </div>
+            <div className="cta-actions">
+              <a href="#contact" className="btn btn-primary">Join our community</a>
+            </div>
           </div>
         </Reveal>
       </div>
@@ -2047,32 +2139,42 @@ export default function Resources() {
           <p>Practical writing and downloadable tools for African business owners.</p>
         </Reveal>
 
-        <div className="resource-grid">
-          <Reveal>
-            <a href="https://medium.com/@triiftafrica" target="_blank" rel="noopener noreferrer" className="resource-card">
-              <div className="resource-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 5v14M12 5v14M20 5v14M4 12h8M4 8h16M4 16h16" stroke="currentColor" strokeWidth="1.4" />
-                </svg>
-              </div>
-              <h3>Read our Medium</h3>
-              <p>Stories, lessons and insights on funding, marketing and running a small business in Africa.</p>
-              <span className="service-cta">Visit Medium →</span>
-            </a>
+        <div className="resource-layout">
+          <Reveal className="resource-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/resources-market-scene.jpg"
+              alt="A craftsman building furniture in a busy African street market"
+            />
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <a href="https://selar.com/m/TriiftAfrica" target="_blank" rel="noopener noreferrer" className="resource-card">
-              <div className="resource-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 4h16v4H4zM6 8v12h12V8" stroke="currentColor" strokeWidth="1.4" />
-                </svg>
-              </div>
-              <h3>Browse resources on Selar</h3>
-              <p>Templates, checklists and ebooks that solve real business pain points: pricing, sales tracking, content and more.</p>
-              <span className="service-cta">Visit Selar →</span>
-            </a>
-          </Reveal>
+          <div className="resource-grid">
+            <Reveal>
+              <a href="https://medium.com/@triiftafrica" target="_blank" rel="noopener noreferrer" className="resource-card">
+                <div className="resource-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 5v14M12 5v14M20 5v14M4 12h8M4 8h16M4 16h16" stroke="currentColor" strokeWidth="1.4" />
+                  </svg>
+                </div>
+                <h3>Read our Medium</h3>
+                <p>Stories, lessons and insights on marketing, pricing and running a small business in Africa.</p>
+                <span className="service-cta">Visit Medium →</span>
+              </a>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <a href="https://selar.com/m/TriiftAfrica" target="_blank" rel="noopener noreferrer" className="resource-card">
+                <div className="resource-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16v4H4zM6 8v12h12V8" stroke="currentColor" strokeWidth="1.4" />
+                  </svg>
+                </div>
+                <h3>Browse resources on Selar</h3>
+                <p>Templates, checklists and ebooks that solve real business pain points: pricing, sales tracking, content and more.</p>
+                <span className="service-cta">Visit Selar →</span>
+              </a>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

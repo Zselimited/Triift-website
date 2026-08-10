@@ -13,16 +13,25 @@ const PERSONAS = [
     tag: '01. Sabi',
     title: 'The market trader',
     body: 'Running her small business with determination, often without access to formal banking, looking for practical ways to grow her trade.',
+    image: '/images/persona-sabi.jpg',
+    alt: 'A smiling fabric shop owner displaying colourful textile prints',
+    position: 'center 25%',
   },
   {
     tag: '02. Savvy',
     title: 'The online vendor',
     body: 'Knows her way around social media, manages her money through a bank, and wants smart strategies to expand her business.',
+    image: '/images/persona-savvy.jpg',
+    alt: 'A vendor processing a payment on a card machine at her stall',
+    position: 'center 30%',
   },
   {
     tag: '03. Start',
     title: 'The student entrepreneur',
     body: 'Eager to stop depending on allowance from home, turn ideas into real businesses, and build a future on her own terms.',
+    image: '/images/persona-start.jpg',
+    alt: 'A young entrepreneur working with tools, building her trade',
+    position: 'center 15%',
   },
 ];
 
@@ -76,9 +85,15 @@ export default function About() {
           {PERSONAS.map((persona, index) => (
             <Reveal delay={index * 0.1} key={persona.tag}>
               <div className="persona-card">
-                <span className="persona-tag">{persona.tag}</span>
-                <h3>{persona.title}</h3>
-                <p>{persona.body}</p>
+                <div className="persona-photo">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={persona.image} alt={persona.alt} style={{ objectPosition: persona.position }} />
+                </div>
+                <div className="persona-card-body">
+                  <span className="persona-tag">{persona.tag}</span>
+                  <h3>{persona.title}</h3>
+                  <p>{persona.body}</p>
+                </div>
               </div>
             </Reveal>
           ))}
