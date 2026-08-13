@@ -27,6 +27,19 @@ function XIcon() {
   );
 }
 
+function FacebookIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M15 8.5h-2c-.6 0-1 .4-1 1V12h3l-.4 3H12v7h-3v-7H7v-3h2V9.2C9 6.9 10.4 5.5 12.6 5.5H15v3z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -41,13 +54,16 @@ export default function Footer() {
             </a>
             <p>Driving the growth of African businesses through community, training and resources.</p>
             <div className="footer-social">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on Instagram">
+              <a href="https://www.instagram.com/triiftafrica" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on Instagram">
                 <InstagramIcon />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on LinkedIn">
+              <a href="https://www.facebook.com/TriiftAfrica" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on Facebook">
+                <FacebookIcon />
+              </a>
+              <a href="https://www.linkedin.com/company/triiftafrica/" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on LinkedIn">
                 <LinkedInIcon />
               </a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on X">
+              <a href="https://x.com/triiftafrica" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on X">
                 <XIcon />
               </a>
             </div>
@@ -68,7 +84,7 @@ export default function Footer() {
             <ul>
               <li><a href="#services">START Accelerator</a></li>
               <li><a href="#resources">Business resources</a></li>
-              <li><a href="#community">Business community</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer">Business community</a></li>
             </ul>
           </div>
 

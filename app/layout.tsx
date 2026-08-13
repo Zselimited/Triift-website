@@ -63,6 +63,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 const organizationSchema = {
@@ -76,7 +81,14 @@ const organizationSchema = {
   email: 'triiftafrica@gmail.com',
   telephone: '+2349035333965',
   areaServed: 'Africa',
-  sameAs: ['https://medium.com/@triiftafrica', 'https://selar.com/m/TriiftAfrica'],
+  sameAs: [
+    'https://medium.com/@triiftafrica',
+    'https://selar.com/m/TriiftAfrica',
+    'https://www.linkedin.com/company/triiftafrica/',
+    'https://www.instagram.com/triiftafrica',
+    'https://www.facebook.com/TriiftAfrica',
+    'https://x.com/triiftafrica',
+  ],
 };
 
 const faqSchema = {

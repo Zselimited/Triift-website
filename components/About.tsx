@@ -30,8 +30,8 @@ const PERSONAS = [
     title: 'The student entrepreneur',
     body: 'Eager to stop depending on allowance from home, turn ideas into real businesses, and build a future on her own terms.',
     image: '/images/persona-start.jpg',
-    alt: 'A young entrepreneur working with tools, building her trade',
-    position: 'center 15%',
+    alt: 'A young entrepreneur smiling while working on her laptop',
+    position: 'center 32%',
   },
 ];
 

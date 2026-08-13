@@ -4,16 +4,27 @@ import { useState, type FormEvent } from 'react';
 import Reveal from './Reveal';
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sent'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus('sent');
     const form = event.currentTarget;
-    setTimeout(() => {
-      setStatus('idle');
+    const formData = new FormData(form);
+
+    setStatus('sending');
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/triiftafrica@gmail.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      });
+      if (!response.ok) throw new Error('Request failed');
+      setStatus('sent');
       form.reset();
-    }, 2600);
+    } catch {
+      setStatus('error');
+    }
+    setTimeout(() => setStatus('idle'), 5000);
   }
 
   return (
@@ -30,22 +41,28 @@ export default function Contact() {
         <div className="contact-grid">
           <Reveal>
             <form onSubmit={handleSubmit}>
+              <input type="hidden" name="_subject" value="New message from the Triift Africa website" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+
               <div className="form-field">
                 <label htmlFor="cf-name">Full name</label>
-                <input id="cf-name" type="text" placeholder="Your name" required />
+                <input id="cf-name" name="name" type="text" placeholder="Your name" required />
               </div>
               <div className="form-field">
                 <label htmlFor="cf-email">Email address</label>
-                <input id="cf-email" type="email" placeholder="you@example.com" required />
+                <input id="cf-email" name="email" type="email" placeholder="you@example.com" required />
               </div>
               <div className="form-field">
                 <label htmlFor="cf-message">Message</label>
-                <textarea id="cf-message" placeholder="Tell us about your business and how we can help" required />
+                <textarea id="cf-message" name="message" placeholder="Tell us about your business and how we can help" required />
               </div>
-              <button className="btn btn-primary" type="submit" disabled={status === 'sent'}>
-                {status === 'sent' ? 'Message sent' : 'Send message'}
+              <button className="btn btn-primary" type="submit" disabled={status === 'sending' || status === 'sent'}>
+                {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Message sent' : 'Send message'}
               </button>
-              <p className="form-note">This form is a template, connect it to your email service or CRM before launch.</p>
+              {status === 'error' && (
+                <p className="form-note">Something went wrong sending your message. Please try again, or email us directly.</p>
+              )}
             </form>
           </Reveal>
 

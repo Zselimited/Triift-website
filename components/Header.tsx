@@ -67,7 +67,7 @@ export default function Header() {
 
         <div className="nav-cta">
           <a href="#resources" className="btn btn-ghost-dark btn-sm">Get resources</a>
-          <a href="#community" className="btn btn-primary btn-sm">Join community</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Join community</a>
           <button
             type="button"
             className="nav-toggle"

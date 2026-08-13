@@ -23,7 +23,7 @@ export default function CtaBanner() {
               </p>
             </div>
             <div className="cta-actions">
-              <a href="#contact" className="btn btn-primary">Join our community</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Join our community</a>
             </div>
           </div>
         </Reveal>

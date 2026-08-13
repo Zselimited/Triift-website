@@ -1398,6 +1398,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 const organizationSchema = {
@@ -1411,7 +1416,14 @@ const organizationSchema = {
   email: 'triiftafrica@gmail.com',
   telephone: '+2349035333965',
   areaServed: 'Africa',
-  sameAs: ['https://medium.com/@triiftafrica', 'https://selar.com/m/TriiftAfrica'],
+  sameAs: [
+    'https://medium.com/@triiftafrica',
+    'https://selar.com/m/TriiftAfrica',
+    'https://www.linkedin.com/company/triiftafrica/',
+    'https://www.instagram.com/triiftafrica',
+    'https://www.facebook.com/TriiftAfrica',
+    'https://x.com/triiftafrica',
+  ],
 };
 
 const faqSchema = {
@@ -1681,7 +1693,7 @@ export default function Header() {
 
         <div className="nav-cta">
           <a href="#resources" className="btn btn-ghost-dark btn-sm">Get resources</a>
-          <a href="#community" className="btn btn-primary btn-sm">Join community</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Join community</a>
           <button
             type="button"
             className="nav-toggle"
@@ -1716,11 +1728,12 @@ export default function Hero() {
               Driving the growth of <em>African businesses</em>
             </h1>
             <p className="hero-lede">
-              We make it easy for small business owners in Africa to access the community support
-              and resources to go from struggling to thriving.
+              Building Africa&apos;s smallest businesses into something greater, by connecting them
+              with the finance, digital tools, partnerships, knowledge, community and market they
+              need to unlock their next level of growth.
             </p>
             <div className="hero-ctas">
-              <a href="#community" className="btn btn-primary">Join our business community</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Join our business community</a>
               <a href="#resources" className="btn btn-ghost-dark">Get resources</a>
             </div>
             <blockquote className="hero-quote">
@@ -1809,8 +1822,8 @@ const PERSONAS = [
     title: 'The student entrepreneur',
     body: 'Eager to stop depending on allowance from home, turn ideas into real businesses, and build a future on her own terms.',
     image: '/images/persona-start.jpg',
-    alt: 'A young entrepreneur working with tools, building her trade',
-    position: 'center 15%',
+    alt: 'A young entrepreneur smiling while working on her laptop',
+    position: 'center 32%',
   },
 ];
 
@@ -1892,7 +1905,8 @@ const SERVICES = [
     title: 'Business community',
     body: 'A free and paid community of ambitious business owners, support, webinars, challenges, resources and opportunities to grow together.',
     cta: 'Join the community',
-    href: '#community',
+    href: 'https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded',
+    external: true,
   },
   {
     index: '02',
@@ -1900,6 +1914,7 @@ const SERVICES = [
     body: 'Templates, checklists and ebooks on pricing, marketing, and financial management, built to solve real business pain points.',
     cta: 'Get a resource',
     href: '#resources',
+    external: false,
   },
   {
     index: '03',
@@ -1907,6 +1922,7 @@ const SERVICES = [
     body: 'We partner with organizations to train, mentor and support business owners in key skills: marketing, pricing, pitching and more.',
     cta: 'Learn more',
     href: '#contact',
+    external: false,
   },
 ];
 
@@ -1928,7 +1944,13 @@ export default function Services() {
               <span className="service-index">{service.index}</span>
               <h3>{service.title}</h3>
               <p>{service.body}</p>
-              <a href={service.href} className="service-cta">{service.cta} →</a>
+              <a
+                href={service.href}
+                className="service-cta"
+                {...(service.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {service.cta} →
+              </a>
             </div>
           ))}
         </Reveal>
@@ -2116,7 +2138,7 @@ export default function CtaBanner() {
               </p>
             </div>
             <div className="cta-actions">
-              <a href="#contact" className="btn btn-primary">Join our community</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Join our community</a>
             </div>
           </div>
         </Reveal>
@@ -2169,7 +2191,7 @@ export default function Resources() {
                     <path d="M4 4h16v4H4zM6 8v12h12V8" stroke="currentColor" strokeWidth="1.4" />
                   </svg>
                 </div>
-                <h3>Browse resources on Selar</h3>
+                <h3>Browse resources</h3>
                 <p>Templates, checklists and ebooks that solve real business pain points: pricing, sales tracking, content and more.</p>
                 <span className="service-cta">Visit Selar →</span>
               </a>
@@ -2241,16 +2263,27 @@ import { useState, type FormEvent } from 'react';
 import Reveal from './Reveal';
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sent'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus('sent');
     const form = event.currentTarget;
-    setTimeout(() => {
-      setStatus('idle');
+    const formData = new FormData(form);
+
+    setStatus('sending');
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/triiftafrica@gmail.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      });
+      if (!response.ok) throw new Error('Request failed');
+      setStatus('sent');
       form.reset();
-    }, 2600);
+    } catch {
+      setStatus('error');
+    }
+    setTimeout(() => setStatus('idle'), 5000);
   }
 
   return (
@@ -2267,22 +2300,28 @@ export default function Contact() {
         <div className="contact-grid">
           <Reveal>
             <form onSubmit={handleSubmit}>
+              <input type="hidden" name="_subject" value="New message from the Triift Africa website" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+
               <div className="form-field">
                 <label htmlFor="cf-name">Full name</label>
-                <input id="cf-name" type="text" placeholder="Your name" required />
+                <input id="cf-name" name="name" type="text" placeholder="Your name" required />
               </div>
               <div className="form-field">
                 <label htmlFor="cf-email">Email address</label>
-                <input id="cf-email" type="email" placeholder="you@example.com" required />
+                <input id="cf-email" name="email" type="email" placeholder="you@example.com" required />
               </div>
               <div className="form-field">
                 <label htmlFor="cf-message">Message</label>
-                <textarea id="cf-message" placeholder="Tell us about your business and how we can help" required />
+                <textarea id="cf-message" name="message" placeholder="Tell us about your business and how we can help" required />
               </div>
-              <button className="btn btn-primary" type="submit" disabled={status === 'sent'}>
-                {status === 'sent' ? 'Message sent' : 'Send message'}
+              <button className="btn btn-primary" type="submit" disabled={status === 'sending' || status === 'sent'}>
+                {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Message sent' : 'Send message'}
               </button>
-              <p className="form-note">This form is a template, connect it to your email service or CRM before launch.</p>
+              {status === 'error' && (
+                <p className="form-note">Something went wrong sending your message. Please try again, or email us directly.</p>
+              )}
             </form>
           </Reveal>
 
@@ -2375,6 +2414,19 @@ function XIcon() {
   );
 }
 
+function FacebookIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M15 8.5h-2c-.6 0-1 .4-1 1V12h3l-.4 3H12v7h-3v-7H7v-3h2V9.2C9 6.9 10.4 5.5 12.6 5.5H15v3z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -2389,13 +2441,16 @@ export default function Footer() {
             </a>
             <p>Driving the growth of African businesses through community, training and resources.</p>
             <div className="footer-social">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on Instagram">
+              <a href="https://www.instagram.com/triiftafrica" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on Instagram">
                 <InstagramIcon />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on LinkedIn">
+              <a href="https://www.facebook.com/TriiftAfrica" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on Facebook">
+                <FacebookIcon />
+              </a>
+              <a href="https://www.linkedin.com/company/triiftafrica/" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on LinkedIn">
                 <LinkedInIcon />
               </a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on X">
+              <a href="https://x.com/triiftafrica" target="_blank" rel="noopener noreferrer" aria-label="Triift Africa on X">
                 <XIcon />
               </a>
             </div>
@@ -2416,7 +2471,7 @@ export default function Footer() {
             <ul>
               <li><a href="#services">START Accelerator</a></li>
               <li><a href="#resources">Business resources</a></li>
-              <li><a href="#community">Business community</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer">Business community</a></li>
             </ul>
           </div>
 

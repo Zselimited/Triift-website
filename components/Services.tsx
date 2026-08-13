@@ -6,7 +6,8 @@ const SERVICES = [
     title: 'Business community',
     body: 'A free and paid community of ambitious business owners, support, webinars, challenges, resources and opportunities to grow together.',
     cta: 'Join the community',
-    href: '#community',
+    href: 'https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded',
+    external: true,
   },
   {
     index: '02',
@@ -14,6 +15,7 @@ const SERVICES = [
     body: 'Templates, checklists and ebooks on pricing, marketing, and financial management, built to solve real business pain points.',
     cta: 'Get a resource',
     href: '#resources',
+    external: false,
   },
   {
     index: '03',
@@ -21,6 +23,7 @@ const SERVICES = [
     body: 'We partner with organizations to train, mentor and support business owners in key skills: marketing, pricing, pitching and more.',
     cta: 'Learn more',
     href: '#contact',
+    external: false,
   },
 ];
 
@@ -42,7 +45,13 @@ export default function Services() {
               <span className="service-index">{service.index}</span>
               <h3>{service.title}</h3>
               <p>{service.body}</p>
-              <a href={service.href} className="service-cta">{service.cta} →</a>
+              <a
+                href={service.href}
+                className="service-cta"
+                {...(service.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {service.cta} →
+              </a>
             </div>
           ))}
         </Reveal>

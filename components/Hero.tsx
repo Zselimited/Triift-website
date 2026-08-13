@@ -12,11 +12,12 @@ export default function Hero() {
               Driving the growth of <em>African businesses</em>
             </h1>
             <p className="hero-lede">
-              We make it easy for small business owners in Africa to access the community support
-              and resources to go from struggling to thriving.
+              Building Africa&apos;s smallest businesses into something greater, by connecting them
+              with the finance, digital tools, partnerships, knowledge, community and market they
+              need to unlock their next level of growth.
             </p>
             <div className="hero-ctas">
-              <a href="#community" className="btn btn-primary">Join our business community</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDVrqbojRBF49hPRM4cDkbDYJOYUhztw1yDjx4LX9ijh72Kw/alreadyresponded" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Join our business community</a>
               <a href="#resources" className="btn btn-ghost-dark">Get resources</a>
             </div>
             <blockquote className="hero-quote">

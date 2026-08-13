@@ -40,7 +40,7 @@ export default function Resources() {
                     <path d="M4 4h16v4H4zM6 8v12h12V8" stroke="currentColor" strokeWidth="1.4" />
                   </svg>
                 </div>
-                <h3>Browse resources on Selar</h3>
+                <h3>Browse resources</h3>
                 <p>Templates, checklists and ebooks that solve real business pain points: pricing, sales tracking, content and more.</p>
                 <span className="service-cta">Visit Selar →</span>
               </a>
