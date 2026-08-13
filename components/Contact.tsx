@@ -13,7 +13,7 @@ export default function Contact() {
 
     setStatus('sending');
     try {
-      const response = await fetch('https://formsubmit.co/ajax/triiftafrica@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/ba334aace1649d99025aa099b4f90743', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: formData,
